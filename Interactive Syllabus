@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAM 250 - Interactive Syllabus</title>
+    <style>
+        /* General page and container styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .syllabus-container {
+            width: 800px;
+            max-width: 100%;
+            background-color: #ffffff;
+            color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header and title styling */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 1rem;
+        }
+        
+        h1 {
+            color: #CC5500; /* Darker orange color */
+            font-size: 2.5em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #CC5500; /* Darker orange color */
+            border-bottom: 1px solid #CC5500; /* Darker orange border */
+            padding-bottom: 5px;
+            margin-bottom: 1rem;
+        }
+
+        p, ul {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Editable content styling */
+        [contenteditable="true"] {
+            outline: none;
+            cursor: pointer;
+        }
+        [contenteditable="true"]:hover, [contenteditable="true"]:focus {
+            background-color: #f9f9f9;
+            border: 1px dashed #ccc;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        /* Button styling */
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .download-btn {
+            background-color: #CC5500; /* Darker orange color */
+            color: white;
+            padding: 12px 24px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .download-btn:hover {
+            background-color: #A04000; /* Even darker orange for hover */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="syllabus-container">
+
+    <div class="header">
+        <h1 contenteditable="true">DAM 250 - Introduction to Video Production: Fall 2025</h1>
+        <div class="subtitle" contenteditable="true">Let's Make Some Movie Magic!</div>
+    </div>
+
+    <p contenteditable="true">Hey Future Filmmakers!</p>
+    <p contenteditable="true">Welcome to DAM 250, your awesome introduction to video production! Get ready to dive into the exciting world of creating captivating digital videos. This is a hybrid class, so we'll have a mix of online and in-person fun.</p>
+
+    <div class="section">
+        <h2 contenteditable="true">Your Guide on this Creative Journey</h2>
+        <p contenteditable="true"><strong>Instructor:</strong> Kirk Fuller (He's a Digital Media Creative and Business Owner, so you're learning from the best!)</p>
+        <p contenteditable="true"><strong>Email:</strong> kfuller@mendocino.edu - Don't hesitate to reach out!</p>
+    </div>
+
+    <div class="section">
+        <h2 contenteditable="true">Where We'll Be Creating</h2>
+        <ul contenteditable="true">
+            <li><strong>Online:</strong> Our super flexible Canvas modules will be your go-to for weekly content.</li>
+            <li><strong>Ukiah Campus:</strong> MacMillan Hall (Room 1280), LLRC (Library, 1st floor, Room 4170)</li>
+            <li><strong>Need to chat?</strong> We can connect during office hours via Eagle Connect.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 contenteditable="true">When We'll Be Making Magic</h2>
+        <ul contenteditable="true">
+            <li><strong>Online:</strong> We've got 16 weekly Canvas modules for you to explore at your own pace! Be sure to log in on the first day, August 19th!</li>
+            <li><strong>In-Person:</strong> We'll have 8 awesome class meetings on Fridays:</li>
+            <li style="padding-left: 20px;"><strong>Time:</strong> 9:30 am - 12:20 pm</li>
+            <li style="padding-left: 20px;"><strong>Dates:</strong> August 23, September 6, September 20, October 4, October 18, November 1, November 15, and December 6.</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2 contenteditable="true">What This Course is All About</h2>
+        <p contenteditable="true">Video is everywhere, and it's an incredible way to share stories and information! This class is all about giving you the fundamental knowledge and skills to create engaging digital video projects. We'll explore the tools, techniques, and processes used in digital video production through hands-on projects. Your final video project will take you through all five stages: Development, Pre-Production, Production, Post-production, and Distribution.</p>
+        <p contenteditable="true"><strong>Here's a sneak peek at some of the cool stuff we'll cover:</strong></p>
+        <ul contenteditable="true">
+            <li>The fascinating History of Video Production</li>
+            <li>Awesome Storytelling Strategies</li>
+            <li>Getting to know your Basic Production tools, techniques, and equipment</li>
+            <li>Making your videos sound and look great with Basic Sound, Graphics, and Visual Effects</li>
+            <li>Exploring different Production Environments: Studio, Field, and Synthetic</li>
+            <li>Mastering Editing software & techniques (especially Adobe Creative Cloud Software!)</li>
+            <li>And even a look into Digital Media Careers!</li>
+        </ul>
+        <p contenteditable="true"><strong>Pro-Tip:</strong> If you've got some basic knowledge of Adobe Photoshop or Illustrator, you'll be ahead of the game, as they're super helpful in the Adobe Creative Suite workflow!</p>
+    </div>
+
+    <div class="section">
+        <h2 contenteditable="true">How You'll Be Graded</h2>
+        <p contenteditable="true">Your grade will be a mix of exams/quizzes, projects, discussions, and more. We'll use a point system, and your final letter grade will be based on the percentage of points you earn.</p>
+        <table style="width:100%; border-collapse: collapse; margin-top: 1rem;" contenteditable="true">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Items in This Course</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Number of Items</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Total Points</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Percentage of Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">Assignments</td><td style="border: 1px solid #ddd; padding: 8px;">12</td><td style="border: 1px solid #ddd; padding: 8px;">80</td><td style="border: 1px solid #ddd; padding: 8px;">8%</td></tr>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">Discussions</td><td style="border: 1px solid #ddd; padding: 8px;">14</td><td style="border: 1px solid #ddd; padding: 8px;">350</td><td style="border: 1px solid #ddd; padding: 8px;">35%</td></tr>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">Quiz</td><td style="border: 1px solid #ddd; padding: 8px;">10</td><td style="border: 1px solid #ddd; padding: 8px;">100</td><td style="border: 1px solid #ddd; padding: 8px;">10%</td></tr>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">Hands On</td><td style="border: 1px solid #ddd; padding: 8px;">4</td><td style="border: 1px solid #ddd; padding: 8px;">100</td><td style="border: 1px solid #ddd; padding: 8px;">10%</td></tr>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">Skills Development</td><td style="border: 1px solid #ddd; padding: 8px;">3</td><td style="border: 1px solid #ddd; padding: 8px;">90</td><td style="border: 1px solid #ddd; padding: 8px;">9%</td></tr>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">Final Project</td><td style="border: 1px solid #ddd; padding: 8px;">4 parts</td><td style="border: 1px solid #ddd; padding: 8px;">180</td><td style="border: 1px solid #ddd; padding: 8px;">18%</td></tr>
+                <tr><td style="border: 1px solid #ddd; padding: 8px;">Final Exam</td><td style="border: 1px solid #ddd; padding: 8px;">1</td><td style="border: 1px solid #ddd; padding: 8px;">100</td><td style="border: 1px solid #ddd; padding: 8px;">10%</td></tr>
+                <tr style="font-weight: bold;"><td style="border: 1px solid #ddd; padding: 8px;">Total</td><td></td><td style="border: 1px solid #ddd; padding: 8px;">1000</td><td style="border: 1px solid #ddd; padding: 8px;">100%</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2 contenteditable="true">Important Stuff</h2>
+        <p contenteditable="true"><strong>Academic Honesty:</strong> This is super important! Please avoid plagiarism, cheating, fabrication, and duplicating assignments. AI tools like ChatGPT can be used if your instructor specifically authorizes it, and you must cite them properly. We'll chat about acceptable uses in class. Using AI without authorization or to completely generate assignments is a no-go.</p>
+        <p contenteditable="true"><strong>Students with Disabilities:</strong> If you have a disability and need accommodations, please reach out to the Disability Resource Center as soon as possible. You can contact them at (707) 468-3031, drc@mendocino.edu, or visit them at the Ukiah campus in the Library and Learning Resource Center (LLRC), Room 4130.</p>
+        <p contenteditable="true"><strong>Absenteeism:</strong> Showing up and participating, both in class and online, is the best way to do well! Your questions and input are super valuable to everyone. Please communicate with your instructor if you'll be absent or have any questions. We're here to support your learning journey!</p>
+    </div>
+
+    <div class="button-container">
+        <button id="download-btn" class="download-btn">Download as PDF</button>
+    </div>
+
+</div>
+
+<!-- Libraries for PDF Generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    document.getElementById('download-btn').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const element = document.querySelector('.syllabus-container');
+
+        // Optional: Hide editable borders for a cleaner screenshot
+        const editableElements = document.querySelectorAll('[contenteditable="true"]');
+        editableElements.forEach(el => el.style.outline = 'none');
+        
+        html2canvas(element, { scale: 2 }).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            // Add the image to the PDF
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            
+            // Save the PDF
+            pdf.save('DAM_250_Syllabus.pdf');
+
+            // Restore editable borders after screenshot
+            editableElements.forEach(el => el.style.outline = '');
+        }).catch(error => {
+            console.error('Error generating PDF:', error);
+            // Re-enable borders in case of error
+            editableElements.forEach(el => el.style.outline = '');
+        });
+    });
+</script>
+
+</body>
+</html>
