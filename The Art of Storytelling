@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Burns: The Art of Storytelling</title>
+    <!-- Inter font and Tailwind CSS for styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .section-header {
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .question-card {
+            border: 1px solid #d1d5db;
+            transition: all 0.2s ease-in-out;
+        }
+        .question-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        #submitButton {
+            transition: background-color 0.3s ease;
+        }
+        #submitButton:hover {
+            background-color: #1d4ed8;
+        }
+        /* Custom modal styles for confirmation */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 md:p-8 flex justify-center">
+    <div class="container mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-10">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+                Ken Burns: The Art of Storytelling
+            </h1>
+            <p class="text-lg text-gray-500 mt-2">Assignment: Analyze the principles of a master filmmaker.</p>
+        </header>
+
+        <section class="mb-8 p-4 bg-blue-50 rounded-2xl">
+            <h2 class="text-2xl font-semibold text-blue-800 mb-2">Instructions</h2>
+            <p class="text-blue-700">
+                Answer the questions below using information and quotes from the video "Ken Burns on the Art of Storytelling." Your answers should be thoughtful and well-supported.
+            </p>
+        </section>
+
+        <!-- Question 1 -->
+        <div class="question-card bg-gray-50 rounded-2xl p-6 mb-6">
+            <h3 class="text-xl font-medium text-gray-700 mb-4">
+                1. The Role of Place
+            </h3>
+            <p class="text-gray-600 mb-4">
+                According to Burns, how has his choice to live and work in Walpole, New Hampshire, influenced his approach to storytelling? Explain the concept of "splendid isolation" and its importance.
+            </p>
+            <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-card bg-gray-50 rounded-2xl p-6 mb-6">
+            <h3 class="text-xl font-medium text-gray-700 mb-4">
+                2. Narrative Structure
+            </h3>
+            <p class="text-gray-600 mb-4">
+                Burns states that a good story embraces contradiction. What does he mean by this, and how does he apply this principle to his work on American history?
+            </p>
+            <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-card bg-gray-50 rounded-2xl p-6 mb-6">
+            <h3 class="text-xl font-medium text-gray-700 mb-4">
+                3. Filmmaker as Historian
+            </h3>
+            <p class="text-gray-600 mb-4">
+                Burns sees his role as honoring the "whole wild unformed thing" of human events. In your own words, what does this mean for a filmmaker's responsibility when telling a historical story?
+            </p>
+            <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-card bg-gray-50 rounded-2xl p-6 mb-6">
+            <h3 class="text-xl font-medium text-gray-700 mb-4">
+                4. The Power of Discovery
+            </h3>
+            <p class="text-gray-600 mb-4">
+                Burns prefers to dive into subjects he doesn't know enough about. Explain why he considers this "process of discovery" to be so crucial to his filmmaking and to the audience's experience.
+            </p>
+            <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-card bg-gray-50 rounded-2xl p-6 mb-6">
+            <h3 class="text-xl font-medium text-gray-700 mb-4">
+                5. Personal Connection
+            </h3>
+            <p class="text-gray-600 mb-4">
+                Burns shares a story about a man and his brother who used his baseball film to reconnect. What is the significance of this anecdote to Burns' view on success and the ultimate purpose of his work?
+            </p>
+            <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <!-- Additional Task -->
+        <div class="question-card bg-blue-100 rounded-2xl p-6 mb-6">
+            <h3 class="text-xl font-bold text-blue-800 mb-4">
+                Additional Task: Your Turn to Tell a Story
+            </h3>
+            <p class="text-gray-700 mb-4">
+                Reflect on your own storytelling experiences. What is a story you have told, or would like to tell, that embodies one of Ken Burns' principles? Explain your choice and how the principle would be applied.
+            </p>
+            <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Write your reflection here..."></textarea>
+        </div>
+
+        <div class="text-center mt-8">
+            <button id="submitButton" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                Submit Your Assignment
+            </button>
+        </div>
+
+        <!-- The Modal for submission confirmation -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <p class="text-xl font-semibold text-gray-800 mt-4">Assignment Submitted!</p>
+                <p class="text-gray-600 mt-2">Your answers have been saved. You can close this window now.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitButton");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("modal-close")[0];
+        
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+          modal.style.display = "flex";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    </script>
+</body>
+</html>
