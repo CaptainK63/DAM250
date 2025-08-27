@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Video Production Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Burnt Orange & Blue on a Light Green Background -->
+    <!-- Application Structure Plan: The application is structured as a single-page, multi-section interactive guide with a sticky top navigation. This design was chosen over a linear document to empower students to explore the pre-production process in a non-linear way, based on their immediate needs. The structure includes: 1) 'The Big Idea' for initial project conception in an interactive form. 2) 'The Producer's Toolkit' for exploring film theory concepts via interactive cards. 3) 'Crew Call' to understand production roles. 4) 'Resource Library' for easy access to downloadable templates. This task-oriented, thematic structure makes the information more digestible and turns a passive reading assignment into an active, engaging workspace, improving usability and learning retention. -->
+    <!-- Visualization & Content Choices: Report Info: Film theory concepts, production roles, list of templates. -> Goal: Inform, Organize, Engage. -> Viz/Presentation Method: Interactive cards (HTML/CSS/JS) for film theory and roles, a clean grid layout for resources, and a web form for the project proposal. -> Interaction: Click-to-reveal details on cards, direct input into form fields, and clear download buttons. -> Justification: These methods avoid passive reading by encouraging user interaction and exploration. The interactive diagram created with HTML/CSS is more engaging than a static image. Since the source material contains no quantitative data, standard charts are not necessary. -> Library/Method: Vanilla JS for interactions, Tailwind CSS for layout. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #EBF5E9; /* Light Green */
+            color: #1F2937; /* Very Dark Gray */
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #C5500; /* Burnt Orange */
+            border-bottom-color: #C5500;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">Pre Production Skills Development 🎬 </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#idea" class="nav-link pb-1">The Big Idea</a>
+                <a href="#toolkit" class="nav-link pb-1">Producer's Toolkit</a>
+                <a href="#crew" class="nav-link pb-1">Crew Call</a>
+                <a href="#resources" class="nav-link pb-1">Resource Library</a>
+                <a href="#assignment" class="nav-link pb-1 text-orange-600 font-bold">Assignment</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#idea" class="block nav-link">The Big Idea</a>
+            <a href="#toolkit" class="block nav-link">Producer's Toolkit</a>
+            <a href="#crew" class="block nav-link">Crew Call</a>
+            <a href="#resources" class="block nav-link">Resource Library</a>
+            <a href="#assignment" class="block nav-link font-bold text-orange-600">Assignment</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="text-center mb-20 section-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Bring Your Video Idea to Life</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">This interactive guide will walk you through the essential first steps of pre-production. Let's start building your project roadmap and turn your concept into a reality.</p>
+        </section>
+
+        <section id="idea" class="mb-20 section-fade-in">
+            <h2 class="text-3xl font-bold mb-2 text-center">Step 1: The Big Idea 🧠</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Your journey starts here. Use this space to sketch out the core concept of your video. Think of this as the first draft of your production proposal—a blueprint for the exciting work ahead.</p>
+            <div class="bg-white p-8 rounded-xl shadow-md max-w-4xl mx-auto border border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="project-title" class="block text-sm font-medium text-gray-700 mb-1">Project Title</label>
+                        <input type="text" id="project-title" placeholder="e.g., The Last Coffee Bean" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label for="duration" class="block text-sm font-medium text-gray-700 mb-1">Proposed Duration</label>
+                        <input type="text" id="duration" placeholder="e.g., 2-3 minutes" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="logline" class="block text-sm font-medium text-gray-700 mb-1">Logline (1-Sentence Summary)</label>
+                        <textarea id="logline" rows="2" placeholder="e.g., A caffeine-addicted detective must solve the mystery of a disappearing coffee supply before the city falls asleep." class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"></textarea>
+                    </div>
+                    <div>
+                        <label for="audience" class="block text-sm font-medium text-gray-700 mb-1">Target Audience</label>
+                        <input type="text" id="audience" placeholder="e.g., Young professionals, coffee lovers" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Key Message / Goal</label>
+                        <input type="text" id="message" placeholder="e.g., To humorously highlight the world's reliance on coffee." class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="toolkit" class="mb-20 section-fade-in">
+            <h2 class="text-3xl font-bold mb-2 text-center">Step 2: The Producer's Toolkit ⚙️</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Every great creator has a toolkit. These are the fundamental elements of film theory—the language you'll use to tell your story, evoke emotion, and captivate your audience. Click on each card to learn more.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white p-6 rounded-xl shadow-md border border-gray-200 cursor-pointer" onclick="toggleDetails('details-composition')">
+                    <h3 class="text-xl font-bold mb-2">Shot Composition</h3>
+                    <p class="text-gray-600">How you frame your shots to guide the viewer's eye and tell your story visually.</p>
+                    <div id="details-composition" class="hidden mt-4 text-sm text-gray-500">Think about the Rule of Thirds, leading lines, and depth of field. Each choice helps build your narrative!</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-md border border-gray-200 cursor-pointer" onclick="toggleDetails('details-lighting')">
+                    <h3 class="text-xl font-bold mb-2">Lighting</h3>
+                    <p class="text-gray-600">Using light and shadow to set the mood, direct attention, and create atmosphere.</p>
+                    <div id="details-lighting" class="hidden mt-4 text-sm text-gray-500">Whether it's bright and cheerful or dark and moody, your lighting choices convey a lot of information and emotion.</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-md border border-gray-200 cursor-pointer" onclick="toggleDetails('details-sound')">
+                    <h3 class="text-xl font-bold mb-2">Sound Design</h3>
+                    <p class="text-gray-600">The art of using audio—dialogue, music, and effects—to enhance the experience.</p>
+                    <div id="details-sound" class="hidden mt-4 text-sm text-gray-500">Sound is a powerful tool! A great video often has great sound, so don't overlook its impact on your story.</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 cursor-pointer" onclick="toggleDetails('details-color')">
+                    <h3 class="text-xl font-bold mb-2">Color Theory</h3>
+                    <p class="text-gray-600">Using colors to evoke emotions and create a cohesive visual style.</p>
+                    <div id="details-color" class="hidden mt-4 text-sm text-gray-500">Colors can symbolize ideas, create contrast, and establish the overall tone of your film.</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 cursor-pointer" onclick="toggleDetails('details-editing')">
+                    <h3 class="text-xl font-bold mb-2">Editing</h3>
+                    <p class="text-sm text-gray-600">The process of assembling shots to create a seamless and compelling narrative.</p>
+                    <div id="details-editing" class="hidden mt-4 text-sm text-gray-500">Pacing, rhythm, and transitions are key. Good editing is invisible and serves the story.</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 cursor-pointer" onclick="toggleDetails('details-mise-en-scene')">
+                    <h3 class="text-xl font-bold mb-2">Mise-en-Scène</h3>
+                    <p class="text-gray-600">Everything that appears in the frame: sets, props, costumes, and actors.</p>
+                    <div id="details-mise-en-scene" class="hidden mt-4 text-sm text-gray-500">This French term means "placing on stage." It's about designing the world of your video.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="crew" class="mb-20 section-fade-in">
+            <h2 class="text-3xl font-bold mb-2 text-center">Step 3: Crew Call 📣</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">On a big set, many people have specialized roles. For your project, you'll likely wear many of these hats yourself! Understanding these roles helps you plan all the tasks you'll need to tackle.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                    <h3 class="text-lg font-bold">Director</h3>
+                    <p class="text-sm text-gray-600">The creative visionary who guides the actors and crew to bring the script to life.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                    <h3 class="text-lg font-bold">Producer</h3>
+                    <p class="text-sm text-gray-600">The project manager who handles logistics, budget, and scheduling.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                    <h3 class="text-lg font-bold">Cinematographer</h3>
+                    <p class="text-sm text-gray-600">The artist behind the camera, responsible for the visual look and feel.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                    <h3 class="text-lg font-bold">Editor</h3>
+                    <p class="text-sm text-gray-600">The storyteller who assembles the footage in post-production to create the final film.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="mb-20 section-fade-in">
+            <h2 class="text-3xl font-bold mb-2 text-center">Step 4: Resource Library 📚</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Pre-production is all about organization. These templates are essential tools to help you plan your project from start to finish. The **Production Proposal** is your first assignment!</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card bg-orange-100 border border-orange-200 p-6 rounded-xl flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3 text-orange-600">📄</div>
+                    <h3 class="text-lg font-bold text-orange-800">Production Proposal</h3>
+                    <p class="text-sm text-orange-700 flex-grow mb-4">Your main task! Outline your project's scope, goals, and needs.</p>
+                    <a href="#" class="bg-orange-600 text-white font-bold py-2 px-4 rounded-full w-full hover:bg-orange-700 transition">Download</a>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3 text-blue-600">📝</div>
+                    <h3 class="text-lg font-bold">Treatment Template</h3>
+                    <p class="text-sm text-gray-600 flex-grow mb-4">A detailed summary of your story, scene by scene.</p>
+                    <a href="#" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full hover:bg-blue-700 transition">Download</a>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3 text-blue-600">🎬</div>
+                    <h3 class="text-lg font-bold">Script Template</h3>
+                    <p class="text-sm text-gray-600 flex-grow mb-4">Format your screenplay with proper dialogue and action lines.</p>
+                    <a href="#" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full hover:bg-blue-700 transition">Download</a>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3 text-blue-600">🎨</div>
+                    <h3 class="text-lg font-bold">Storyboard Template</h3>
+                    <p class="text-sm text-gray-600 flex-grow mb-4">Visually plan your shots to map out the look of your film.</p>
+                    <a href="#" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full hover:bg-blue-700 transition">Download</a>
+                </div>
+                 <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3 text-blue-600">📋</div>
+                    <h3 class="text-lg font-bold">Shot List Template</h3>
+                    <p class="text-sm text-gray-600 flex-grow mb-4">Organize every shot you need to capture during production.</p>
+                    <a href="#" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full hover:bg-blue-700 transition">Download</a>
+                </div>
+                 <div class="card bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3 text-blue-600">🎭</div>
+                    <h3 class="text-lg font-bold">Script Breakdown</h3>
+                    <p class="text-sm text-gray-600 flex-grow mb-4">Break down your script to identify all props, cast, and locations.</p>
+                    <a href="#" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full hover:bg-blue-700 transition">Download</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Assignment Section -->
+        <section id="assignment" class="mb-20 section-fade-in">
+            <h2 class="text-3xl font-bold mb-2 text-center">Your Skills Development Task 📝</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">It's time to put your ideas on paper! Your task is to complete a Production Proposal.</p>
+            <div class="bg-orange-100 p-8 rounded-xl shadow-md max-w-4xl mx-auto border border-orange-200">
+                <ul class="space-y-4 text-left text-gray-800">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 mr-3 text-2xl text-orange-600">1️⃣</span>
+                        <div>
+                            <span class="font-bold">Download the Template:</span> Find the **Production Proposal Template** above (highlighted in orange) and download it. The template already has an example inside to guide you.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 mr-3 text-2xl text-orange-600">2️⃣</span>
+                        <div>
+                            <span class="font-bold">Fill It Out:</span> Complete the proposal to the best of your ability. Don't stress about having all the answers! This is just a first draft, and it's okay if you change your mind later.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 mr-3 text-2xl text-orange-600">3️⃣</span>
+                        <div>
+                            <span class="font-bold">Submit:</span> Save your completed document as a Word file or PDF and submit it via the assignment tool.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="text-center bg-white p-10 rounded-xl shadow-md border border-gray-200 section-fade-in">
+             <h2 class="text-3xl font-bold mb-2">A Final Word on Constraints ☑️</h2>
+             <p class="text-gray-600 max-w-3xl mx-auto">Remember the four constraints: **scope, time, cost, and quality**. A wonderful idea might be too big for this semester. It's better to create a small, polished project than an ambitious, unfinished one. Embrace the K.I.S.S. principle: **Keep It Short & Simple!** The goal is to learn the process. You're now ready to move forward with your final video project!</p>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2025 DAM 250 Intro To Video Production. Happy creating!</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleDetails(elementId) {
+            const element = document.getElementById(elementId);
+            element.classList.toggle('hidden');
+        }
+
+        const sections = document.querySelectorAll('.section-fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
