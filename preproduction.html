@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Production Guide</title>
+    <!-- Use a fun, readable font like Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* A clean white background */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        /* Custom styles for the interactive modal */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ef4444; /* red-500 */
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen">
+    <div class="container py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-orange-800 leading-tight mb-2">
+                Lights, Camera, Pre-production! 🎬
+            </h1>
+            <p class="text-xl text-gray-600">The ultimate guide to planning your next masterpiece.</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Introduction Section -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border-t-8 border-orange-500 transition-transform duration-300 hover:scale-105">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    What is Pre-Production? ✨
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Pre-production is an essential planning stage for any project, from commercials to feature films. It's the period where you lay the groundwork for a successful and organized shoot. While it can be overwhelming, staying organized makes it simple! The goal is to define how efficient your production will be, and the more work you put in here, the smoother your on-set experience will be. Remember to **KISS** - **K**eep **I**t **S**hort and **S**imple!
+                </p>
+                <!-- Existing infographic placeholder -->
+                <div class="mt-6 flex justify-center">
+                    <img class="rounded-xl shadow-lg" src="https://mendocino.instructure.com/courses/20920/files/2386847/preview" alt="The Pre-Production Process Explained Infographic">
+                </div>
+            </div>
+
+            <!-- Interactive Steps Section -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border-t-8 border-cyan-500 transition-transform duration-300 hover:scale-105">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    Pre-Production Steps 📝
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Here's a breakdown of the key steps. Click to expand and check them off as you go!
+                </p>
+                <button id="toggleStepsBtn" class="mt-4 w-full bg-cyan-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-cyan-600 transition-colors duration-300 transform hover:scale-105">
+                    Show/Hide Steps
+                </button>
+                <div id="preProSteps" class="mt-6 hidden">
+                    <ul class="space-y-3 text-lg text-gray-700">
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Lock the shooting script</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Finalize the budget</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Hire key department heads</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Breakdown the script</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Storyboard and shot list scenes</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Scout and secure locations</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Cast actors and hire crew</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Get permits and insurance</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Schedule shoot days</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Perform a tech scout</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-500">✓</span> Arrange for equipment rentals</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Why This Matters Section -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border-t-8 border-blue-500 transition-transform duration-300 hover:scale-105">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    Why This Matters 💡
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    The skills you learn in pre-production directly connect to the course's learning outcomes:
+                </p>
+                <ul class="list-none space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 text-2xl font-bold">1</span>
+                        <div>
+                            <strong class="font-semibold text-gray-900">Create clear and organized plans:</strong> Locking the script, finalizing the budget, and creating a shooting schedule are the foundation of a clear plan.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 text-2xl font-bold">2</span>
+                        <div>
+                            <strong class="font-semibold text-gray-900">Produce awesome audio and video sequences:</strong> Storyboarding and shot listing help you visualize and plan your sequences before you ever start filming.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 text-2xl font-bold">3</span>
+                        <div>
+                            <strong class="font-semibold text-gray-900">Effortlessly manage and save files:</strong> Pre-production is where you plan your file management system and folder structure, so you can stay organized from the start.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 text-2xl font-bold">4</span>
+                        <div>
+                            <strong class="font-semibold text-gray-900">Work together with others:</strong> Hiring crew, casting actors, and holding tech scouts are all collaborative activities that ensure everyone is on the same page.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 text-2xl font-bold">5</span>
+                        <div>
+                            <strong class="font-semibold text-gray-900">Skillfully record audio and video:</strong> Arranging for equipment rentals and performing a tech scout ensures you have the right gear for the job.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 text-2xl font-bold">6</span>
+                        <div>
+                            <strong class="font-semibold text-gray-900">Be comfortable using editing software:</strong> By planning your project in detail, you make the editing process much smoother and more efficient.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Video Section -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border-t-8 border-teal-500 transition-transform duration-300 hover:scale-105 lg:col-span-2">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    Meet the Experts! 🎥
+                </h2>
+                <div class="flex justify-center">
+                    <iframe class="rounded-xl w-full" style="max-width: 720px; height: 420px;" src="https://mendocino.instructure.com/courses/20920/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fmendocino.instructuremedia.com%2Flti%2Flaunch%3Fcustom_arc_launch_type%3Dbare_embed%26custom_arc_media_id%3D2a0307f2-0a82-4858-bb2c-dc4c4f67454a-10800" width="720" height="420" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"></iframe>
+                </div>
+            </div>
+
+            <!-- Assignment Section -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border-t-8 border-orange-500 transition-transform duration-300 hover:scale-105 lg:col-span-2">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    Your Assignment ✍️
+                </h2>
+                <ol class="list-decimal list-inside space-y-4 text-gray-700 leading-relaxed">
+                    <li>
+                        <strong class="font-semibold text-gray-900">Reflect on the Process:</strong> Write two paragraphs sharing your thoughts on the pre-production process. Consider these questions as a guide:
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-sm text-gray-600">
+                            <li>What did you already know about the process?</li>
+                            <li>What was something new you learned?</li>
+                            <li>How will pre-production help you with your project?</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-900">Submit Your Response:</strong> Use the text box provided in the assignment section to submit your two paragraphs.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Call to Action Section -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border-t-8 border-orange-500 transition-transform duration-300 hover:scale-105">
+                <h2 class="text-3xl font-bold text-orange-500 mb-4 flex items-center gap-2">
+                    Let's Get Started! 🚀
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Now that you have the knowledge, you're ready to plan your own project. Remember, the more organized you are in this stage, the smoother the rest of your project will be!
+                </p>
+                <button id="openModalBtn" class="mt-4 w-full bg-orange-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 transform hover:scale-105">
+                    Did You Know?
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Interactive Modal/Popup -->
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeModalBtn" class="close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Fun Fact! 💡</h3>
+            <p class="text-gray-700">
+                Some major Hollywood films spend over a year in pre-production! It's a huge undertaking that can make or break a project.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for interactivity
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('toggleStepsBtn');
+            const stepsList = document.getElementById('preProSteps');
+            const openModalBtn = document.getElementById('openModalBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const infoModal = document.getElementById('infoModal');
+
+            // Function to toggle the visibility of the steps list
+            toggleBtn.addEventListener('click', () => {
+                stepsList.classList.toggle('hidden');
+            });
+
+            // Function to show the modal
+            openModalBtn.addEventListener('click', () => {
+                infoModal.style.display = 'flex';
+            });
+
+            // Function to hide the modal
+            closeModalBtn.addEventListener('click', () => {
+                infoModal.style.display = 'none';
+            });
+
+            // Hide the modal if the user clicks outside of it
+            window.addEventListener('click', (event) => {
+                if (event.target === infoModal) {
+                    infoModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
