@@ -209,24 +209,38 @@ August 22, 29 / September 12, 26 / October 10, 24 / November 7, 21 / December 5<
         const editableElements = document.querySelectorAll('[contenteditable="true"]');
         editableElements.forEach(el => el.style.outline = 'none');
         
-        html2canvas(element, { scale: 2 }).then(canvas => {
+        html2canvas(element, { scale: 2, useCORS: true }).then(canvas => {
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF('p', 'mm', 'a4');
-            const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-            // Add the image to the PDF
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
             
-            // Save the PDF
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+            
+            const imgWidth = pdfWidth;
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            
+            let heightLeft = imgHeight;
+            let position = 0;
+
+            // Add the first page
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pdfHeight;
+
+            // Loop to add subsequent pages if content exceeds a single page
+            while (heightLeft > 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pdfHeight;
+            }
+            
+            // Save the multi-page PDF
             pdf.save('DAM_250_Syllabus.pdf');
 
             // Restore editable borders after screenshot
             editableElements.forEach(el => el.style.outline = '');
         }).catch(error => {
             console.error('Error generating PDF:', error);
-            // Re-enable borders in case of error
             editableElements.forEach(el => el.style.outline = '');
         });
     });
